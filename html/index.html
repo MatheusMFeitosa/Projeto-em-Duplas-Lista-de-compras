@@ -18,9 +18,10 @@
             </header>
             
             <ul>
-                <li>Alimentos</li>
-                <li>Produtos de limpeza</li>
-                <li>Brinquedos</li>
+                <!-- Input radio para ter seletor e o name para que apenas um filtro seja escolhido por vez -->
+                <li><input type="radio" name="filtros">Alimentos</li>
+                <li><input type="radio" name="filtros">Produtos de limpeza</li>
+                <li><input type="radio" name="filtros">Brinquedos</li>
             </ul>
             
             <div class="acoes-menu-lateral">
@@ -46,14 +47,15 @@
     <main>
         <section class="itens-comida" id="Alimentos">
             <h2>Alimentos</h2>
-            <div class="conteiner-produtos">
+            <!-- classe "container-produto" com a categoria alimentos para posteriores pesquisas -->
+            <div class="conteiner-produtos alimentos" >
                 <div class="produto">
                     <img src="../img/tomate.jpg" alt="tomate">
                     <h4>Tomate</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
                     <div class="compra">
                         <p>R$ 100.00</p>
-                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho(Tomate, 100)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho('Tomate', 100)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
                     </div>
                 </div>
 
@@ -62,8 +64,8 @@
                     <h4>Feijão</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
                     <div class="compra">
-                        <p>R$ 100.00</p>
-                        <button class="botaoAdicionarCarrinho"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                        <p>R$ 10.00</p>
+                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho('Feijão', 10)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
                     </div>
                 </div>
 
@@ -72,8 +74,8 @@
                     <h4>Farinha</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
                     <div class="compra">
-                        <p>R$ 100.00</p>
-                        <button class="botaoAdicionarCarrinho"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                        <p>R$ 15.00</p>
+                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho('Farinha', 15)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
                     </div>
                 </div>
             </div>
@@ -81,7 +83,7 @@
     </main>
 
     <script src="../scripts/index.js"></script>
-    <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
