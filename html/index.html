@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercadão Brothers</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav>
+        <h1>Brothers</h1>
+        <div class="menu-lateral">
+            <header>
+                <h3>Filtros</h3>
+                <i class="fa-solid fa-xmark"></i>
+            </header>
+            
+            <ul>
+                <li>Alimentos</li>
+                <li>Produtos de limpeza</li>
+                <li>Brinquedos</li>
+            </ul>
+            
+            <div class="acoes-menu-lateral">
+                <button>Aplicar filtros</button>
+                <button>Remover todos os filtros</button>
+            </div>
+            
+        </div>
+        
+        <div class="conteiner-barra-pesquisa">
+            <!-- label para ao clicar na lupa apontar para a barra de pesquisa (input) -->
+            <label for="barra_pesquisa">
+                <input type="search" name="pesquisa" id="barra_pesquisa" placeholder="Pesquise aqui..." />
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+        </div>
+        <div class="menu-usuario">
+            <i class="fa-solid fa-circle-user"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </nav>
+
+    <main>
+        <section class="itens-comida" id="Alimentos">
+            <h2>Alimentos</h2>
+            <div class="conteiner-produtos">
+                <div class="produto">
+                    <img src="../img/tomate.jpg" alt="tomate">
+                    <h4>Tomate</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
+                    <div class="compra">
+                        <p>R$ 100.00</p>
+                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho(Tomate, 100)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="produto">
+                    <img src="../img/feijao.jpg" alt="feijao">
+                    <h4>Feijão</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
+                    <div class="compra">
+                        <p>R$ 100.00</p>
+                        <button class="botaoAdicionarCarrinho"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="produto">
+                    <img src="../img/fainha.jpg" alt="farinha">
+                    <h4>Farinha</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
+                    <div class="compra">
+                        <p>R$ 100.00</p>
+                        <button class="botaoAdicionarCarrinho"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/index.js"></script>
+    <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
