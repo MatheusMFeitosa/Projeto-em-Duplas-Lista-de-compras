@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
     margin: 0;
@@ -183,7 +183,7 @@ main{
     padding-top: 2%;
 }
 
-main .itens-comida{
+main .conteiner-alimentos{
     display: flex;
     flex-direction: column;
     gap: 2vh;
@@ -192,14 +192,14 @@ main .itens-comida{
     height: 25vh;
 }
 
-main .itens-comida .conteiner-produtos{
+main .conteiner-alimentos .conteiner-produtos{
     display: flex;
     gap: 2vw;
 
     width: 100%;
 }
 
-main .itens-comida .produto{
+main .conteiner-alimentos .produto{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -212,7 +212,7 @@ main .itens-comida .produto{
     border-radius: 15px;
 }
 
-main .itens-comida .produto img{
+main .conteiner-alimentos .produto img{
     width: 78.5%;
     height: 45%;
 
@@ -224,13 +224,13 @@ main .itens-comida .produto img{
 
 }
 
-main .itens-comida .produto p, h4, .compra{
+main .conteiner-alimentos .produto p, h4, .compra{
     width: 100%;
     padding-right: 10%;
     padding-left: 10%;
 }
 
-main .itens-comida .produto .compra{
+main .conteiner-alimentos .produto .compra{
     display: flex;
     justify-content: space-between;
 
@@ -239,7 +239,7 @@ main .itens-comida .produto .compra{
 
 }
 
-main .itens-comida .produto .compra p{
+main .conteiner-alimentos .produto .compra p{
     text-align: left;
     padding: 0;
 
@@ -247,7 +247,7 @@ main .itens-comida .produto .compra p{
     font-size: 1.2rem;
 }
 
-main .itens-comida .produto .compra button{
+main .conteiner-alimentos .produto .compra button{
     display: flex;
     align-items: center;
     gap: 5px;
