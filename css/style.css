@@ -10,32 +10,25 @@
     --azul: #2e4052;
     --amarelo: #ffc857;
     --branco: #fffff1;
+    --vermelho: #c4302b;    
     --fonte-principal: "Poppins", sans-serif;
 }
 
 body{
     font-family: var(--fonte-principal);
     background-color: var(--branco);
-
     animation: entrada 1s ease-in-out forwards;
 }
 
-
 @keyframes entrada{
-    from{
-        opacity: 0;
-    }
-
-    to{
-        opacity: 1;
-    }
+    from{ opacity: 0; }
+    to{ opacity: 1; }
 }
 
 nav{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
     width: 100%;
     height: 8vh;
 }
@@ -46,16 +39,12 @@ nav .menu-lateral{
     align-items: center;
     justify-content: space-evenly;
     gap: 10%;
-
     position: fixed;
     top: calc(8vh + 2vw);
     left: 2vw;
-
     width: 20vw;
     height: calc(100% - 8vh - 4vw);
-
     background-color: var(--azul);
-
     box-shadow: 10px 0 15px rgba(0, 0, 0, 0.493);
     border-radius: 10px;
 }
@@ -64,10 +53,8 @@ nav .menu-lateral header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     width: 60%;
     color: var(--branco);
-
     font-size: 1.5rem;
 }
 
@@ -75,11 +62,9 @@ nav .menu-lateral header i{
     font-size: 2rem;
 }
 
-
 nav h1{
     display: flex;
     align-items: center;
-
     color: var(--amarelo);
     -webkit-text-stroke: 2px var(--azul);
     letter-spacing: 1.3px;
@@ -88,22 +73,17 @@ nav h1{
 nav ul{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-
     height: 50%;
-
     color: var(--branco);
     font-size: larger;
     text-transform: capitalize;
-
     list-style: none;
 }
 
 nav .conteiner-barra-pesquisa{
     display: flex;
     align-items: center;
-
     width: 50%;
     height: 100%;
 }
@@ -112,14 +92,10 @@ nav label{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    
     width: 100%;
     height: 50%;
-
     background-color: var(--azul);
-
     border-radius: 10px;
-
     cursor: pointer;
 }
 
@@ -127,15 +103,10 @@ nav label input{
     width: 95%;
     height: 100%;
     outline: none;
-
     appearance: none;
-    background-color: none;
     border: none;
-    /*margin-right: 5px;*/
-
     background-color: transparent;
     border-right: 2px solid var(--branco);
-
     color: var(--branco);
 }
 
@@ -148,118 +119,267 @@ nav .menu-usuario{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     padding-right: 2%;
-
     width: 8%;
+    gap: 20px;
 }
 
 nav .menu-usuario i{
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: var(--amarelo);
-
     padding: 9px;
     aspect-ratio: 1/1;
-
     background-color: var(--azul);
     border-radius: 50%;
-
     font-size: 1.6rem;
-
     cursor: pointer;
 }
 
+/* --- ESTILOS DA TELA PRINCIPAL (INDEX) --- */
 main{
     display: flex;
-
-
+    flex-direction: column; 
     width: 100%;
     min-height: 92vh;
-
-    padding-left: 25%;
+    padding-left: 25vw; 
     padding-top: 2%;
+    gap: 40px; 
 }
 
-main .conteiner-alimentos{
+.conteiner-categoria {
     display: flex;
     flex-direction: column;
-    gap: 2vh;
-
     width: 100%;
-    height: 25vh;
+    padding: 0 20px;
 }
 
-main .conteiner-alimentos .conteiner-produtos{
+.conteiner-categoria h2 {
+    margin-bottom: 15px;
+    color: var(--azul); 
+    font-size: 24px;
+    border-bottom: 2px solid #ccc; 
+    padding-bottom: 5px;
+}
+
+.conteiner-produtos {
     display: flex;
     gap: 2vw;
-
     width: 100%;
+    padding-bottom: 10px;
+    overflow-x: auto; 
 }
 
-main .conteiner-alimentos .produto{
+.produto{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-
-    width: 20%;
-
+    
+    min-width: 250px; 
+    height: 380px;
+    
     box-shadow: 0px 0 20px rgba(0, 0, 0, 0.192);
     border: 1px solid var(--azul);
     border-radius: 15px;
+    background-color: var(--branco);
 }
 
-main .conteiner-alimentos .produto img{
+.produto img{
     width: 78.5%;
     height: 45%;
-
     object-fit: cover;
     object-position: center;
-
     border-radius: 5px;
     border: 2px solid var(--azul);
-
+    margin-top: 10px;
 }
 
-main .conteiner-alimentos .produto p, h4, .compra{
+.produto p, .produto h4, .produto .compra{
     width: 100%;
     padding-right: 10%;
     padding-left: 10%;
+    text-align: center;
 }
 
-main .conteiner-alimentos .produto .compra{
+.produto .compra{
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
+    flex-wrap: wrap ;
     padding-right: 7%;
     padding-left: 7%;
-
+    width: 100%;
+    height: 25%;
 }
 
-main .conteiner-alimentos .produto .compra p{
+.produto .compra p{
     text-align: left;
     padding: 0;
-
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-main .conteiner-alimentos .produto .compra button{
+.produto .compra input{
+    width: 80%;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+.produto .compra button{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
-
     padding: 5px 23px;
-
     background-color: var(--azul);
     color: var(--amarelo);
-
     border: none;
     cursor: pointer;
     border-radius: 3px;
-
     font-weight: bold;
+    width: 100%;
+}
+
+.acoes-menu-lateral{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+
+    width: 100%;
+
+}
+
+.acoes-menu-lateral button{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+    background-color: var(--amarelo);
+    color: var(--azul);
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    width: 42%; 
+}
+
+/* --- ESTILOS DO CARRINHO --- */
+.carrinho{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 92vh;
+    padding: 0;
+}
+
+.carrinho h1{
+    width: 80%;
+    margin-top: 20px;
+}
+
+.carrinho .lista-produtos-carrinho{
+    width: 60%;
+    background-color: var(--branco);
+    min-height: 10vh;
+    
+    border: 1px solid var(--azul);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.345);
+    transition: all .3s ease-in-out;
+}
+
+.carrinho .lista-produtos-carrinho li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 80%;
+    border-top: 2px solid #ccc;
+    transition: all .3s ease-in-out;
+    margin: 0 auto;
+}
+
+.carrinho .lista-produtos-carrinho li:first-child{
+    border: none;
+}
+
+.carrinho .lista-produtos-carrinho li .info-produto{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1vh;
+    height: 80%;
+    width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.carrinho .lista-produtos-carrinho li .info-produto img{
+    height: 8vh;
+    border-radius: 5px;
+    border: 1px solid #2e4052;
+}
+
+.carrinho .lista-produtos-carrinho li .info-produto h4{ 
+    padding: 0;
+}
+
+.carrinho .acoes-carrinho{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.carrinho .acoes-carrinho button{
+    height: 70%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.carrinho .acoes-carrinho button i{
+    color: var(--vermelho);
+    font-size: 1.2rem;
+}
+
+.rodape-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: var(--branco);
+    border: 1px solid var(--azul);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#valor-total {
+    color: var(--azul);
+    font-size: 1.5rem;
+}
+
+.carrinho .finalizar-compra{
+    font-size: 1.3rem;
+    border: none;
+    color: var(--amarelo);
+    background-color: var(--azul);
+    padding: 10px 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.carrinho .finalizar-compra:hover{
+    opacity: 0.8;
 }

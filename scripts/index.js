@@ -2,64 +2,181 @@ const LISTA_PRODUTOS = [
     { nomeProduto: "Tomate", precoProduto: 3.50, categoria: "alimentos", quantidade: 0 },
     { nomeProduto: "Feijao", precoProduto: 10.00, categoria: "alimentos", quantidade: 0 },
     { nomeProduto: "Farinha", precoProduto: 5.00, categoria: "alimentos", quantidade: 0 },
-    { nomeProduto: "Arroz", precoProduto: 5.00, categoria: "alimentos", quantidade: 0 }
+    { nomeProduto: "Arroz", precoProduto: 5.00, categoria: "alimentos", quantidade: 0 },
+    { nomeProduto: "Detergente", precoProduto: 2.50, categoria: "limpeza", quantidade: 0 },
+    { nomeProduto: "Sabao", precoProduto: 8.00, categoria: "limpeza", quantidade: 0 }
 ];
 
 const botaoCarrinho = document.querySelector(".fa-cart-shopping");
 
 botaoCarrinho.addEventListener("click", () => {
     window.location.href = "carrinho.html"
-})
+});
 
-// Inicializa todos os produtos a disposição simulando um banco de dados local
 function inicializarProdutos() {
-    if (localStorage.length == 0) {
-        for (let i = 0; i < LISTA_PRODUTOS.length; i++) {
-            localStorage.setItem(LISTA_PRODUTOS[i].nomeProduto, JSON.stringify(LISTA_PRODUTOS[i]))
+    for (let i = 0; i < LISTA_PRODUTOS.length; i++) {
+        let nomeDoProduto = LISTA_PRODUTOS[i].nomeProduto;
+
+        if (localStorage.getItem(nomeDoProduto) === null) {
+            localStorage.setItem(nomeDoProduto, JSON.stringify(LISTA_PRODUTOS[i]));
         }
     }
 }
 
-// funcao que adiciona quantidade a um produto a partir de um input, tirando-o de texto para acessar a chave do dicionario e depois retransformo para adicionar 
-// a nova linha
-function adcionarQuantidadeProduto(nomeProduto) {
-    let inputQuantidade = document.getElementById(nomeProduto)
+function adicionarQuantidadeProduto(nomeProduto) {
+    let inputQuantidade = document.getElementById(nomeProduto);
 
-    let valor = localStorage.getItem(nomeProduto)
-    let listaOriginal = JSON.parse(valor)
+    if (inputQuantidade.value === "" || inputQuantidade.value <= 0) {
+        alert("Por favor, digite uma quantidade válida.");
+        return;
+    }
 
-    listaOriginal["quantidade"] = inputQuantidade.value
+    let valor = localStorage.getItem(nomeProduto);
 
-    localStorage.setItem(listaOriginal["nomeProduto"], JSON.stringify(listaOriginal))
+    if (valor) {
+        let listaOriginal = JSON.parse(valor);
+
+        listaOriginal["quantidade"] = parseInt(inputQuantidade.value);
+
+        localStorage.setItem(listaOriginal["nomeProduto"], JSON.stringify(listaOriginal));
+
+        alert(`${nomeProduto} adicionado ao carrinho!`);
+    }
 }
 
-function filtrarProdutos(){
-    let inputRadioFiltro = document.getElementsByName("filtros")
+function adicionarQuantidadeProduto(nomeProduto) {
+    let inputQuantidade = document.getElementById(nomeProduto);
+    if (inputQuantidade.value === "" || inputQuantidade.value <= 0) {
+        alert("Por favor, digite uma quantidade válida.");
+        return;
+    }
 
-    for (let i = 0; i < inputRadioFiltro.length; i++) {
-        if(inputRadioFiltro[i].checked == true){
-            let categoria = inputRadioFiltro[i].id
+    let valor = localStorage.getItem(nomeProduto);
+
+    if (valor) {
+        let listaOriginal = JSON.parse(valor);
+
+        listaOriginal["quantidade"] = parseInt(inputQuantidade.value);
+
+        localStorage.setItem(listaOriginal["nomeProduto"], JSON.stringify(listaOriginal));
+
+        alert(`${nomeProduto} adicionado ao carrinho!`);
+        inputQuantidade.value = "";
+    }
+}
+
+function mostrarProdutosTela() {
+    const main = document.querySelector("main");
+    main.replaceChildren();
+
+    let categorias = [];
+    for (let i = 0; i < LISTA_PRODUTOS.length; i++) {
+        let categoriaAtual = LISTA_PRODUTOS[i].categoria;
+        if (!categorias.includes(categoriaAtual)) {
+            categorias.push(categoriaAtual);
         }
     }
 
-    
-    //console.log(inputRadioFiltro)
-}
+    for (let i = 0; i < categorias.length; i++) {
+        let categoria = categorias[i];
 
-let inputRadioFiltro = document.querySelectorAll(`#Alimentos`)
-inputRadioFiltro[0].addEventListener('change', filtrarProdutos())
+        const secaoCategoria = document.createElement("section");
+        const tituloCategoria = document.createElement("h2");
+        const divListaProdutos = document.createElement("div");
 
-function removerFiltros(){
-    let inputRadioFiltro = document.getElementsByName("filtros")
+        secaoCategoria.classList.add("conteiner-categoria");
+        secaoCategoria.dataset.categoria = categoria;
+        divListaProdutos.classList.add("conteiner-produtos");
 
-    for (let i = 0; i < inputRadioFiltro.length; i++) {
-        inputRadioFiltro[i].checked = false
+        tituloCategoria.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+
+        secaoCategoria.append(tituloCategoria);
+        secaoCategoria.append(divListaProdutos);
+
+        for (let j = 0; j < LISTA_PRODUTOS.length; j++) {
+            if (LISTA_PRODUTOS[j].categoria === categoria) {
+                adicionarProdutoHTML(LISTA_PRODUTOS[j], divListaProdutos);
+            }
+        }
+
+        main.append(secaoCategoria);
     }
 }
 
-removerFiltros()
+function adicionarProdutoHTML(produto, containerDestino) {
+    const divProduto = document.createElement("div");
+    const imgProduto = document.createElement("img");
+    const h4Produto = document.createElement("h4");
+    const descricaoProduto = document.createElement("p");
+    const divCompra = document.createElement("div");
+    const precoProduto = document.createElement("p");
+    const inputQuantidade = document.createElement("input");
+    const botaoAdicionar = document.createElement("button");
+    const iconeCarrinho = document.createElement("i");
 
-inicializarProdutos()
+    divProduto.classList.add("produto");
+    divProduto.classList.add(produto.categoria);
+    divCompra.classList.add("compra");
+    inputQuantidade.classList.add("inputQuantidade");
+    botaoAdicionar.classList.add("botaoAdicionarCarrinho");
+    iconeCarrinho.classList.add("fa-solid", "fa-cart-plus");
 
+    imgProduto.src = `../img/${produto.nomeProduto}.jpg`;
+    imgProduto.alt = produto.nomeProduto;
 
-//pegarFiltro()
+    h4Produto.classList.add("nomeProduto");
+    h4Produto.textContent = produto.nomeProduto;
+
+    descricaoProduto.textContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit.";
+
+    precoProduto.textContent = `R$ ${produto.precoProduto.toFixed(2)}`;
+
+    inputQuantidade.type = "number";
+    inputQuantidade.id = produto.nomeProduto;
+    inputQuantidade.placeholder = "Qtd";
+    inputQuantidade.min = "1";
+    inputQuantidade.required = true;
+
+    botaoAdicionar.classList.add("botaoAdicionarCarrinho");
+    botaoAdicionar.textContent = " Adicionar";
+    botaoAdicionar.addEventListener("click", () => {
+        adicionarQuantidadeProduto(produto.nomeProduto);
+    });
+
+    containerDestino.append(divProduto);
+    divProduto.append(imgProduto);
+    divProduto.append(h4Produto);
+    divProduto.append(descricaoProduto);
+    divProduto.append(divCompra);
+    divCompra.append(precoProduto);
+    divCompra.append(inputQuantidade);
+    divCompra.append(botaoAdicionar);
+    botaoAdicionar.prepend(iconeCarrinho);
+}
+
+function filtrarProdutos() {
+    const radioSelecionado = document.querySelector('input[name="filtros"]:checked');
+    if (!radioSelecionado) return;
+
+    const categoriaSelecionada = radioSelecionado.value;
+    const secoes = document.querySelectorAll(".conteiner-categoria");
+
+    secoes.forEach((secao) => {
+        if (secao.dataset.categoria === categoriaSelecionada) {
+            secao.style.display = "flex";
+        } else {
+            secao.style.display = "none";
+        }
+    });
+}
+
+function removerFiltros() {
+    const radios = document.querySelectorAll('input[name="filtros"]');
+    radios.forEach((radio) => radio.checked = false);
+
+    const secoes = document.querySelectorAll(".conteiner-categoria");
+    secoes.forEach((secao) => secao.style.display = "flex");
+}
+
+inicializarProdutos();
+mostrarProdutosTela();

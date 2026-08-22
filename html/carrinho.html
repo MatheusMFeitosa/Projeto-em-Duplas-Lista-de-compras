@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meu Carrinho</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
 
+<body>
     <nav>
         <div class="menu-principal">
             <h1>Brothers</h1>
             <ul>
-                <h3>filtros</h3>
+                <h3>Filtros</h3>
                 <li>Alimentos</li>
                 <li>Produtos de limpeza</li>
                 <li>Brinquedos</li>
             </ul>
         </div>
         <div class="conteiner-barra-pesquisa">
-            <!-- label para ao clicar na lupa apontar para a barra de pesquisa (input) -->
             <label for="barra_pesquisa">
                 <input type="search" name="pesquisa" id="barra_pesquisa" placeholder="Pesquise aqui..." />
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -30,9 +30,20 @@
             <i class="fa-solid fa-house"></i>
         </div>
     </nav>
-    
+
+    <main class="carrinho">
+        <h1>Seu Carrinho</h1>
+
+        <ul class="lista-produtos-carrinho"></ul>
+        
+        <div class="rodape-carrinho">
+            <h3 id="valor-total">Total: R$ 0.00</h3>
+            <button class="finalizar-compra">Finalizar Compra</button>
+        </div>
+    </main>
 
     <script src="../scripts/carrinho.js"></script>
     <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

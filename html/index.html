@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercadão Brothers</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
     <nav>
         <h1>Brothers</h1>
@@ -16,23 +14,20 @@
                 <h3>Filtros</h3>
                 <i class="fa-solid fa-xmark"></i>
             </header>
-            
             <ul>
-                <!-- Input radio para ter seletor e o name para que apenas um filtro seja escolhido por vez -->
-                <li><input type="radio" name="filtros" id="Alimentos">Alimentos</li>
-                <li><input type="radio" name="filtros" id="Produtos-Limpeza">Produtos de limpeza</li>
-                <li><input type="radio" name="filtros" id="Brinquedos">Brinquedos</li>
+                <ul>
+                    <li><input type="radio" name="filtros" value="alimentos"> Alimentos</li>
+                    <li><input type="radio" name="filtros" value="limpeza"> Produtos de limpeza</li>
+                    <li><input type="radio" name="filtros" value="brinquedos"> Brinquedos</li>
+                </ul>
             </ul>
-            
             <div class="acoes-menu-lateral">
                 <button onclick="filtrarProdutos()">Aplicar filtros</button>
-                <button onclick="removerFiltros()">Remover todos os filtros</button>
+                <button onclick="removerFiltros()">Remover  filtros</button>
             </div>
-            
         </div>
-        
+
         <div class="conteiner-barra-pesquisa">
-            <!-- label para ao clicar na lupa apontar para a barra de pesquisa (input) -->
             <label for="barra_pesquisa">
                 <input type="search" name="pesquisa" id="barra_pesquisa" placeholder="Pesquise aqui..." />
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -44,51 +39,9 @@
         </div>
     </nav>
 
-    <main>
-        <section class="conteiner-alimentos" id="Alimentos">
-            <h2>Alimentos</h2>
-            <!-- classe "container-produto" com a categoria alimentos para posteriores pesquisas -->
-            <div class="conteiner-produtos alimentos" >
-                <div class="produto">
-                    <img src="../img/tomate.jpg" alt="tomate">
-                    <h4 class="nomeProduto">Tomate</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
-                    <div class="compra">
-                        <p>R$ 100.00</p>
-                        <input type="text" id="Tomate" class="inputQuantidade" required>
-                        <button class="botaoAdicionarCarrinho" onclick="adcionarQuantidadeProduto('Tomate')"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="produto">
-                    <img src="../img/feijao.jpg" alt="feijao">
-                    <h4 class="nomeProduto">Feijão</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
-                    <div class="compra">
-                        <p>R$ 10.00</p>
-                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho('Feijão', 10)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="produto">
-                    <img src="../img/fainha.jpg" alt="farinha">
-                    <h4 class="nomeProduto">Farinha</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, at nostrum cupiditate</p>
-                    <div class="compra">
-                        <p>R$ 15.00</p>
-                        <button class="botaoAdicionarCarrinho" onclick="adicionarCarrinho('Farinha', 15)"><i class="fa-solid fa-cart-plus"></i> Adicionar</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="conteiner-limpeza">
-            <h2></h2>
-        </section>
-    </main>
+    <main></main>
 
     <script src="../scripts/index.js"></script>
     <script src="https://kit.fontawesome.com/bf19b5ff3e.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
