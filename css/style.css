@@ -40,8 +40,9 @@ nav .menu-lateral{
     justify-content: space-evenly;
     gap: 10%;
     position: fixed;
+
     top: calc(8vh + 2vw);
-    left: 2vw;
+    right: 2vw;
     width: 20vw;
     height: calc(100% - 8vh - 4vw);
     background-color: var(--azul);
@@ -143,7 +144,7 @@ main{
     flex-direction: column; 
     width: 100%;
     min-height: 92vh;
-    padding-left: 25vw; 
+    padding-right: 25vw;
     padding-top: 2%;
     gap: 40px; 
 }

@@ -127,7 +127,7 @@ function adicionarProdutoHTML(produto, containerDestino) {
     h4Produto.classList.add("nomeProduto");
     h4Produto.textContent = produto.nomeProduto;
 
-    descricaoProduto.textContent = "Lorem ipsum dolor, sit amet consectetur adipisicing elit.";
+    descricaoProduto.textContent = "Teste Descrição";
 
     precoProduto.textContent = `R$ ${produto.precoProduto.toFixed(2)}`;
 
@@ -135,6 +135,7 @@ function adicionarProdutoHTML(produto, containerDestino) {
     inputQuantidade.id = produto.nomeProduto;
     inputQuantidade.placeholder = "Qtd";
     inputQuantidade.min = "1";
+    inputQuantidade.max = "10"
     inputQuantidade.required = true;
 
     botaoAdicionar.classList.add("botaoAdicionarCarrinho");
