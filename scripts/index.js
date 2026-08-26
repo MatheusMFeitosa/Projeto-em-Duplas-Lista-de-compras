@@ -182,6 +182,13 @@ function removerFiltros() {
 const botaoAlternarMenuLateral = document.querySelector("#botao_menu");
 const menuLateral = document.querySelector(".menu-lateral");
 
+function iniciarMenuLateralFechado(){
+    menuLateral.classList.toggle("fechado");
+
+    botaoAlternarMenuLateral.classList.remove("fa-xmark");
+    botaoAlternarMenuLateral.classList.add("fa-sort-down");
+}
+
 botaoAlternarMenuLateral.addEventListener("click", ()=>{
     menuLateral.classList.toggle("fechado");
 
@@ -194,5 +201,6 @@ botaoAlternarMenuLateral.addEventListener("click", ()=>{
     }
 });
 
+iniciarMenuLateralFechado();
 inicializarProdutos();
 mostrarProdutosTela();
