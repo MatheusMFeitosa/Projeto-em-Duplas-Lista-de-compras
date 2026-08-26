@@ -179,5 +179,20 @@ function removerFiltros() {
     secoes.forEach((secao) => secao.style.display = "flex");
 }
 
+const botaoAlternarMenuLateral = document.querySelector("#botao_menu");
+const menuLateral = document.querySelector(".menu-lateral");
+
+botaoAlternarMenuLateral.addEventListener("click", ()=>{
+    menuLateral.classList.toggle("fechado");
+
+    if(menuLateral.classList.contains("fechado")){
+        botaoAlternarMenuLateral.classList.remove("fa-xmark");
+        botaoAlternarMenuLateral.classList.add("fa-sort-down");
+    }else {
+        botaoAlternarMenuLateral.classList.remove("fa-sort-down");
+        botaoAlternarMenuLateral.classList.add("fa-xmark");
+    }
+});
+
 inicializarProdutos();
 mostrarProdutosTela();

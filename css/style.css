@@ -48,6 +48,9 @@ nav .menu-lateral{
     background-color: var(--azul);
     box-shadow: 10px 0 15px rgba(0, 0, 0, 0.493);
     border-radius: 10px;
+
+    transition: height 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 nav .menu-lateral header{
@@ -61,6 +64,46 @@ nav .menu-lateral header{
 
 nav .menu-lateral header i{
     font-size: 2rem;
+    cursor: pointer;
+}
+
+nav .menu-lateral.fechado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    top: calc(8vh + 2vw);
+    right: 2vw;
+    width: 20vw;
+    height: 8%;
+    background-color: var(--azul);
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.493);
+    border-radius: 10px;
+}
+
+nav .menu-lateral.fechado header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    color: var(--branco);
+    font-size: 1.5rem;
+}
+
+nav .menu-lateral.fechado header i{
+    font-size: 2rem;
+    cursor: pointer;
+
+    transform: translateY(-5px);
+}
+
+nav .menu-lateral.fechado ul{
+    display: none;
+}
+
+nav .menu-lateral.fechado .acoes-menu-lateral{
+    display: none;
 }
 
 nav h1{
